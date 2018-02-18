@@ -16,4 +16,5 @@ function greeter(person: Person) {
 
 let user = new Student('Jahne', 'M', 'D\'Oh');
 
-document.body.innerHTML = greeter(user);
+// document.body.innerHTML = greeter(user);
+console.log(greeter(user));
