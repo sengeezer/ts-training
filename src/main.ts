@@ -1,5 +1,7 @@
 import { SocialNetwork } from './socialNetwork';
 
+import * as _ from 'lodash';
+
 class App implements SocialNetwork {
   title = 'Smegheads';
   getUsers() {
@@ -9,3 +11,5 @@ class App implements SocialNetwork {
     }];
   }
 }
+
+console.log(_.isArray(new App().getUsers()));

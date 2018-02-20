@@ -6,7 +6,6 @@
   <title>Greetings</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-  <!-- <script src="../node_modules/systemjs/dist/system.js"></script> -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/systemjs/0.21.0/system.js"></script>
   <!-- <script src="../dist/greeter.js"></script> -->
 </head>
@@ -17,9 +16,12 @@
       packages: {
         "../dist": {
           "defaultExtension": "js",
-          "main": "./greeter"
+          "main": "./main"
         }
-      }
+      },
+      map: {
+        "lodash": "//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js"
+      },
     }); 
 
     System.import('../dist');
