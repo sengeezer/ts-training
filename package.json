@@ -5,7 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "@types/lodash": "^4.14.104",
+    "crypto": "^1.0.1",
     "eslint": "^4.17.0",
+    "reflect-metadata": "^0.1.12",
     "systemjs": "^0.21.0",
     "tslint": "^5.9.1",
     "typescript": "^2.7.2"

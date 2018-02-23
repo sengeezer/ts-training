@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 // OLD WAY
 
 const person = {
@@ -18,6 +20,15 @@ console.log(addAge(30)(person));
 
 // NEW WAY
 
+// Output parameter types
+function newAge() {
+  return function(targetClass) {
+    const types = Reflect.getMetadata('design:paramtypes', targetClass);
+    console.log(types);
+    return targetClass;
+  }
+}
+
 function adage(age) {
   return function(targetClass) {
     return class {
@@ -35,3 +46,12 @@ class Person {
 }
 
 console.log(new Person());
+
+@newAge()
+class NonPerson {
+  constructor(name: string) {
+
+  }
+}
+
+new NonPerson('Djonn');
