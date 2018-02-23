@@ -5,12 +5,12 @@ class Student {
   }
 }
 
-interface Person {
+interface Cheloviek {
   firstName: string;
   lastName: string;
 }
 
-function greeter(person: Person) {
+function greeter(person: Cheloviek) {
   return `Hello ${person.firstName} ${person.lastName}`;
 }
 
