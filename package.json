@@ -27,5 +27,6 @@
     "learn"
   ],
   "author": "MF",
-  "license": "MIT"
+  "license": "MIT",
+  "typings": "./dist/index.d.ts"
 }
