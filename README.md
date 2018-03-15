@@ -1,3 +1,3 @@
 # TS Training
 
-Code related to efforts at learning Typescript. Almost nothing here for now.
+Code related to efforts at learning Typescript. All derived from public sources for now.
