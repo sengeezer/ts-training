@@ -33,27 +33,27 @@ function add (a: number, b: number): number {
 function sayHello (name?: string) {
   // Name is optional.
   if (name) {
-    console.log('Hello ' + name + '!')
+    console.log('Hello ' + name + '!');
   }
 
-  console.log('Hello')
+  console.log('Hello');
 }
 
 // Variables
-var x = 10 // Inferred 'number' type.
-var y: number = 20 // Explicit 'number' type.
+let xa = 10; // Inferred 'number' type.
+let y: number = 20; // Explicit 'number' type.
 
 // Function calls.
-add(x, y) // Works.
-// add('a', 'b') //=> Error: Argument of type 'string' is not assignable to parameter of type 'number'.
+add(xa, y); // Works.
+// add('a', 'b'); //=> Error: Argument of type 'string' is not assignable to parameter of type 'number'.
 
 // Type inferencing.
 function takesCallback (cb: (error: Error) => any) {
-  return cb(new Error('Boom!'))
+  return cb(new Error('Boom!'));
 }
 
 takesCallback(function (err) {
-  console.log(err.message)
+  console.log(err.message);
 })
 
 
@@ -70,33 +70,33 @@ interface Foo {
   y: number
 }
 
-var foo = {} as Foo
-foo.x = 10
-foo.y = 10
+const foo = {} as Foo;
+foo.x = 10;
+foo.y = 10;
 // foo.anotherValue = 'test' //=> Error: Property 'anotherValue' does not exist on type 'Foo'.
 
 // Not possible to do.
-// var bad = { x: 10 } as string
+// const bad = { x: 10 } as string
 
 // But we can force it to happen.
-var bad = { x: 10 } as any as string
-bad.toUpperCase() // What?
+const bad = { x: 10 } as any as string;
+bad.toUpperCase(); // What?
 
 // Type shorthand.
-type HelloWorld = string
+type HelloWorld = string;
 
 function print (): HelloWorld {
-  return 'hello world'
+  return 'hello world';
 }
 
-print().toUpperCase() //=> "HELLO WORLD".
+print().toUpperCase(); //=> 'HELLO WORLD'.
 
 function getLabel (obj: { label: string }): string {
-  return obj.label
+  return obj.label;
 }
 
 // Could also use in a type.
-type LabelObj = { label: string }
+type LabelObj = { label: string };
 
 // Or an interface.
 // interface LabelObj { label: string }
@@ -112,98 +112,100 @@ interface Dog extends Animal {
 
 // Type guards.
 function typeGuard (obj: Dog): obj is Dog {
-  return typeof obj.bark === 'string'
+  return typeof obj.bark === 'string';
 }
 
-var dog = { legs: 4, bark: 'woof!' }
+const dog = { legs: 4, bark: 'woof!' };
 
 if (typeGuard(dog)) {
-  alert('It\'s a dog! ' + dog.bark) // Definitely a dog.
+  alert('It\'s a dog! ' + dog.bark); // Definitely a dog.
 }
 
 // Generics.
 function identity <T> (arg: T): T {
-  return arg
+  return arg;
 }
 
 function arrify <T> (arr: T | T[]): T[] {
   if (Array.isArray(arr)) {
-    return arr
+    return arr;
   }
 
-  return [arr] as T[]
+  return [arr] as T[];
 }
 
 interface Map <T> {
   [key: string]: T
 }
 
-var dictionary: Map<string> = {}
-dictionary[name] = name
+const dictionary: Map<string> = {};
+dictionary[name] = name;
 
 // Union Types.
-var value: string | string[] = 'test'
+const value: string | string[] = 'test'
 
-console.log(value.length) // Works because it exists on both `string` and `Array`.
+console.log(value.length); // Works because it exists on both `string` and `Array`.
 
 // Intersection Types.
 function extend <A, B> (a: A, b: B): A & B {
   Object.keys(b).forEach(key => {
-    (a as any)[key] = (b as any)[key]
+    (a as any)[key] = (b as any)[key];
   })
 
-  return a as A & B
+  return a as A & B;
 }
 
 function makeDogFromAnimal (animal: Animal): Dog {
-  return extend(animal, { bark: 'woof woof woof' })
+  return extend(animal, { bark: 'woof woof woof' });
 }
 
 // Tuples.
-var tuple: [string, number] = ['hello', 10]
+const tuple: [string, number] = ['hello', 10];
 // tuple = [10, 'hello'] //=> Error: Type '[number, string]' is not assignable to type '[string, number]'.
 
-console.log(tuple[0].substr(1))
+console.log(tuple[0].substr(1));
 // console.log(tuple[1].substr(1)) //=> Error: Property 'substr' does not exist on type 'number'.
 
 // `typeof`.
 import * as TS from 'typescript'
 
-declare function require (module: string): any
+declare function require (module: string): any;
 
 function eventually () {
-  var ts: typeof TS = require('typescript')
+  const ts: typeof TS = require('typescript');
 }
 
 // `typeof` only works on values, but you can use an interface with generics.
-class Foo { bar: string }
+class Foo { bar: string; }
 
 function create <T> (Clazz: { new (): T }): T {
-  return new Clazz()
+  return new Clazz();
 }
 
-var result = create(Foo)
+const result = create(Foo);
 
 // `this`.
 class Calculator {
-  constructor (protected value: number = 0) {}
+  constructor (protected value: number = 0) {
+
+  }
 
   result (): number {
-    return this.value
+    return this.value;
   }
 
   add (operand: number) {
-    this.value += operand
-    return this
+    this.value += operand;
+    return this;
   }
 
   subtract(operand: number) {
-    this.value -= operand
-    return this
+    this.value -= operand;
+    return this;
   }
 
 }
 
-var x = new Calculator(10)
+const xb = new Calculator(10)
   .add(5)
-  .result()
+  .result();
