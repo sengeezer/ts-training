@@ -189,21 +189,17 @@ class Calculator {
   constructor (protected value: number = 0) {
 
   }
-
   result (): number {
     return this.value;
   }
-
   add (operand: number) {
     this.value += operand;
     return this;
   }
-
   subtract(operand: number) {
     this.value -= operand;
     return this;
   }
-
 }
 
 const xb = new Calculator(10)
