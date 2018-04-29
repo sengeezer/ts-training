@@ -64,6 +64,11 @@ interface MyInterface {
   (): boolean // It's a function that returns a `boolean`.
 }
 
+// Index types
+interface Dictionary {
+  [index: string]: string
+}
+
 // Type Assertions.
 interface Foo {
   x: number
